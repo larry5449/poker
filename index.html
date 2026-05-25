@@ -50,7 +50,7 @@ button {
 <div id="debug"></div>
 <script>
 
-const ranges = {
+const Openranges = {
 
 UTG: {
 "AA":1,"AKs":1,"AQs":1,"AJs":1,"ATs":1,"A9s":1,"A8s":1,"A7s":1,"A6s":1,"A5s":1,"A4s":1,
@@ -119,7 +119,7 @@ let wrongCount = {};
 function getWeightedHands(pos) {
     let output = [];
 
-    for (let hand in ranges[pos]) {
+    for (let hand in Openranges[pos]) {
 
         let base = 1;
 
