@@ -90,28 +90,48 @@ button {
     transform: scale(0.9);
 }
 
-#btn_reset {
+
+#topLeftBar {
     position: fixed;
 
     top: 20px;
     left: 20px;
 
-    font-size: 14px;     /* ✅ 小一點 */
-    padding: 6px 12px;   /* ✅ 輕量 */
+    display: flex;
+    align-items: center;
+    gap: 10px;   /* ✅ 按鈕和版本間距 */
+}
+
+/* reset 按鈕 */
+#btn_reset {
+    width: 36px;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+    border: 1px solid #555;
 
     background: #222;
     color: #aaa;
 
-    border: 1px solid #555;
-    border-radius: 8px;
+    font-size: 18px;
 
-    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
 }
 
 #btn_reset:hover {
-    opacity: 1;
     background: #444;
     color: white;
+}
+
+/* ✅ 版本號 */
+#version {
+    color: white;
+    font-size: 14px;
+    opacity: 0.8;
 }
 
 </style>
@@ -119,6 +139,11 @@ button {
 </head>
 
 <body>
+
+<div id="topLeftBar">
+    <button id="btn_reset">↺</button>
+    <div id="version">v0.1</div>
+</div>
 
 <!-- ✅ 模式選單 -->
 <select id="mode">
@@ -145,7 +170,7 @@ button {
 <div id="result"></div>
 
 
-<!-- 每次發版記得改版本號 -->
+<!-- 每次發版記得改版本號(還沒寫顯示版本號) -->
 <script type="module" src="./js/main.js?v=0.2"></script>
 
 
