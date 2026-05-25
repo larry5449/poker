@@ -21,7 +21,7 @@ function newQ() {
 
     isPaused = false;
     remainingTime = 5000;
-    document.getElementById("btn_pause").innerText = "⏸";
+    document.getElementById("btn_pause").innerText = "⏸︎";
 }
 
 function answer(action) {
@@ -99,7 +99,7 @@ function togglePause() {
             setTimeout(newQ, 800);
         }, remainingTime);
 
-        document.getElementById("btn_pause").innerText = "⏸";
+        document.getElementById("btn_pause").innerText = "⏸︎";
     }
 }
 
