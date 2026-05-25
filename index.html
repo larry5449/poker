@@ -37,6 +37,60 @@ button {
     font-size: 50px;
     margin-top: 20px;
 }
+
+#timerBarContainer {
+    width: 300px;
+    height: 10px;
+    margin: 20px auto;
+
+    background: #333;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#timerBar {
+    height: 100%;
+    width: 100%;
+
+    background: linear-gradient(to right, #00ffcc, #00ccff);
+
+    transition: width 5s linear;
+}
+
+#btn_pause {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    width: 50px;
+    aspect-ratio: 1;
+
+    padding: 0;
+
+    font-size: 22px;
+
+    background: #222;
+    color: white;
+
+    border-radius: 50%;
+    border: 1px solid #555;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#btn_pause:hover {
+    background: #444;
+}
+
+#btn_pause:active {
+    transform: scale(0.9);
+}
+
+
 </style>
 
 </head>
@@ -53,11 +107,15 @@ button {
 <!-- ✅ 顯示資訊 -->
 <div id="position"></div>
 <div id="hand"></div>
+<div id="timerBarContainer">
+  <div id="timerBar"></div>
+</div>
 
 <!-- ✅ 按鈕 -->
 <button id="btn_raise" style="background:green;color:white;">Raise</button>
 <button id="btn_call" style="background:blue;color:white;">Call</button>
 <button id="btn_fold" style="background:red;color:white;">Fold</button>
+<button id="btn_pause" style="background:rgb(229, 245, 4);color:white;">⏸</button>
 
 <!-- ✅ 結果 -->
 <div id="result"></div>
