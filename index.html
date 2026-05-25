@@ -90,6 +90,23 @@ button {
     transform: scale(0.9);
 }
 
+#btn_reset {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    font-size: 14px;     /* ✅ 小一點 */
+    padding: 6px 12px;   /* ✅ 輕量 */
+
+    background: #222;
+    color: #aaa;
+
+    border: 1px solid #555;
+    border-radius: 8px;
+
+    opacity: 0.8;
+}
 
 </style>
 
@@ -116,12 +133,15 @@ button {
 <button id="btn_call" style="background:blue;color:white;">Call</button>
 <button id="btn_fold" style="background:red;color:white;">Fold</button>
 <button id="btn_pause" style="background:rgb(229, 245, 4);color:white;">| |</button>
+<button id="btn_reset">Reset Stats</button>
 
 <!-- ✅ 結果 -->
 <div id="result"></div>
 
-<!-- ✅ 關鍵！！模組入口 -->
+
+<!-- 每次發版記得改版本號 -->
 <script type="module" src="./js/main.js?v=0.1"></script>
+
 
 </body>
 </html>

@@ -7,9 +7,12 @@ let isPaused = false;
 let remainingTime = 5000; // 毫秒
 let startTime;
 
+const btnPause = document.getElementById("btn_pause");
+const timerBar = document.getElementById("timerBar");
+
 
 function newQ() {
-    clearInterval(timerInterval);   //✅ 先清掉舊timer
+    clearTimeout(timerInterval);
 
     let mode = document.getElementById("mode").value;
 
@@ -17,16 +20,16 @@ function newQ() {
 
     updateUI(currentQ);
     updateButtons(mode);
-    startTimer(currentQ);
 
     isPaused = false;
-    remainingTime = 5000;
-    document.getElementById("btn_pause").innerText = "| |";
+    btnPause.innerText = "| |";
+
+    startTimer(currentQ);
 }
 
 function answer(action) {
 
-    clearInterval(timerInterval);
+    clearTimeout(timerInterval);
 
     let correct = checkAnswer(action);
 
@@ -63,6 +66,11 @@ function startTimer(question) {
     }, remainingTime);
 }
 
+function resetStats() {
+    localStorage.removeItem("wrong");  // ✅ 刪掉資料
+    location.reload();                // ✅ 重整頁面
+}
+
 function togglePause() {
 
     const bar = document.getElementById("timerBar");
@@ -82,7 +90,7 @@ function togglePause() {
         bar.style.transition = "none";
         bar.style.width = currentWidth;
 
-        document.getElementById("btn_pause").innerText = "▶";
+        btnPause.innerText = "▶";
 
     } else {
         // ✅ 繼續
@@ -99,7 +107,7 @@ function togglePause() {
             setTimeout(newQ, 800);
         }, remainingTime);
 
-        document.getElementById("btn_pause").innerText = "| |";
+        btnPause.innerText = "| |";
     }
 }
 
@@ -109,7 +117,7 @@ document.getElementById("btn_raise").onclick = () => answer("raise");
 document.getElementById("btn_call").onclick = () => answer("call");
 document.getElementById("btn_fold").onclick = () => answer("fold");
 document.getElementById("btn_pause").onclick = togglePause;
-
+document.getElementById("btn_reset").onclick = resetStats;
 
 // ✅ mode 切換
 document.getElementById("mode").onchange = newQ;

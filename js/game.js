@@ -66,4 +66,8 @@ export function checkAnswer(action) {
         wrongCount[key] = (wrongCount[key] || 0) + 1;
         return false;
     }
+
+    localStorage.setItem("wrong", JSON.stringify(wrongCount));
+    return action === current.correct;
+
 }
